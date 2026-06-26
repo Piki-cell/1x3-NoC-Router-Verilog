@@ -2,18 +2,18 @@
 
 ## 📖 Overview
 
-This project implements a **1×3 Router Module** for a **Network-on-Chip (NoC)** using **Verilog HDL**.
+This project presents the design and implementation of a **1×3 Router Module** for a **Network-on-Chip (NoC)** using **Verilog HDL**.
 
-The router forwards incoming packets from a single input channel to one of three output ports based on the destination select signal using a Finite State Machine (FSM).
+The router forwards incoming packets from a single input port to one of three output ports based on a 2-bit select signal using a Finite State Machine (FSM).
 
 ---
 
 ## 🚀 Features
 
-- Verilog HDL Design
-- FSM-based Packet Routing
-- 1 Input → 3 Output Architecture
-- Low Latency Routing
+- Verilog HDL Implementation
+- Finite State Machine (FSM) Based Design
+- 1×3 Packet Routing
+- Low Latency Communication
 - Functional Simulation
 - RTL Verification
 
@@ -29,13 +29,10 @@ The router forwards incoming packets from a single input channel to one of three
 
 ## 📂 Repository Contents
 
-├── router_1x3.v
-
-├── tb_router_1x3.v
-
-├── Project_Report.pdf
-
-└── README.md
+- `router_1x3.v` – Main router module
+- `tb_router_1x3.v` – Testbench for simulation
+- `Images(output).pdf` – RTL schematic and simulation waveform
+- `README.md`
 
 ---
 
@@ -60,25 +57,29 @@ The router forwards incoming packets from a single input channel to one of three
 
 ---
 
-## ⚙️ Working
+## ⚙️ Working Principle
 
 The router remains in the **IDLE** state until a valid packet arrives.
 
-Once **valid_in** becomes HIGH, the FSM transitions to the **SEND** state and forwards the packet to the selected output port based on the **sel** signal.
+When **valid_in** becomes HIGH, the FSM transitions to the **SEND** state and routes the packet to one of the three output ports depending on the value of the **sel** signal.
+
+After successful transmission, the FSM returns to the **IDLE** state.
 
 ---
 
 ## 📊 Results
 
-- Correct Packet Routing
-- Successful FSM Operation
-- One Clock Cycle Latency
-- Functional Simulation Verified
+- Correct packet routing
+- Successful FSM state transitions
+- One clock cycle latency
+- Functional simulation verified
+
+The RTL schematic and simulation waveform are included in **Images(output).pdf**.
+
 
 ---
 
-## 👩‍💻 Authors
+## 📄 License
 
-- Harshita Choudhury
-- Jayashri
-- Prabhanshi
+This project is licensed under the MIT License.
+
